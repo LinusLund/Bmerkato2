@@ -1,0 +1,10 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using Bmerkato2.Models.ViewModels;
+@using Bmerkato2.Models.Identity;
+@using Bmerkato2.Models.Entities;
+@using Bmerkato2.Contexts
+
+@inject SignInManager<AppUser> signInManager
+@inject UserManager<AppUser> userManager
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
