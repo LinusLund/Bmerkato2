@@ -16,6 +16,7 @@
 
                 if (user != null)
                 {
+                    //Om du är inloggad som admin, står det "Admin" annars ditt UserName(Email)
                     if (await userManager.IsInRoleAsync(user, "admin"))
                     {
                         <a asp-controller="admin" asp-action="Index" class="link">Admin</a>

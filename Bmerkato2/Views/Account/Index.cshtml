@@ -1,5 +1,7 @@
 ﻿
 @{
-    ViewData["Title"] = User.Identity?.Name;
+    ViewData["Title"] = User.FindFirst("DisplayName")?.Value;
 }
-<div>User.Name</div>
+<div>
+    @ViewData["Title"]
+</div>

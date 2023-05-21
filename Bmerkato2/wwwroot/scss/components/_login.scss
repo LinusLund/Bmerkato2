@@ -27,7 +27,11 @@
         column-gap: 30px;
         row-gap: 30px;
         grid-template-columns: 1fr;
-        grid-template-areas: "email" "password" "rememberme" "button";
+        grid-template-areas:
+        "email"
+        "password"
+        "rememberme"
+        "button";
 
 
 
@@ -45,7 +49,7 @@
         }
 
 
-        button {
+        .btn-theme {
             grid-area: button;
 
             @include lg {

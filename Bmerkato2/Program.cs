@@ -19,6 +19,10 @@ builder.Services.AddScoped<AuthenticationService>();
 //Repositories
 builder.Services.AddScoped<AddressRepository>();
 builder.Services.AddScoped<UserAddressRepository>();
+builder.Services.AddScoped<ProductCategoryRepository>();
+builder.Services.AddScoped<ProductRepository>();
+builder.Services.AddScoped<ProductTagRepository>();
+builder.Services.AddScoped<TagRepository>();
 
 //Identity
 builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
@@ -26,7 +30,10 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
     x.SignIn.RequireConfirmedAccount = false;
     x.Password.RequiredLength = 8;
     x.User.RequireUniqueEmail = true;
-}).AddEntityFrameworkStores<DataContext>();
+})
+
+.AddEntityFrameworkStores<DataContext>()
+.AddClaimsPrincipalFactory<CustomClaimsPrincipalFactory>();
 
 builder.Services.ConfigureApplicationCookie(x =>
 {
@@ -41,6 +48,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
+app.UseAuthentication();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

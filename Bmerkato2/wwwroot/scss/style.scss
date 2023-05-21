@@ -7,7 +7,7 @@
 @import './components/collectionitem';
 @import './components/collectioncontent';
 @import './components/forms';
-
+//Partials
 @import './components/header';
 @import './components/footer';
 @import './components/breadcrumb';
@@ -18,4 +18,6 @@
 @import './components/topselling';
 @import './components/newsletter';
 @import './components/contactform';
+//views
 @import './components/_login.scss';
+@import './components/_denied.scss';

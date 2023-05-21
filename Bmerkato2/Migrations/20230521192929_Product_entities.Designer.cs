@@ -4,6 +4,7 @@ using Bmerkato2.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bmerkato2._0.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230521192929_Product_entities")]
+    partial class Product_entities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,66 +45,6 @@ namespace Bmerkato2._0.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Adresses");
-                });
-
-            modelBuilder.Entity("Bmerkato2.Models.Entities.ProductEntity", b =>
-                {
-                    b.Property<string>("ArticleNumber")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ProductCategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ProductDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ProductName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("ProductPrice")
-                        .HasColumnType("money");
-
-                    b.HasKey("ArticleNumber");
-
-                    b.HasIndex("ProductCategoryId");
-
-                    b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("Bmerkato2.Models.Entities.ProductTagEntity", b =>
-                {
-                    b.Property<string>("ArticleNumber")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("TagId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ArticleNumber", "TagId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("ProductTags");
-                });
-
-            modelBuilder.Entity("Bmerkato2.Models.Entities.TagEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("TagName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tags");
                 });
 
             modelBuilder.Entity("Bmerkato2.Models.Entities.UserAddressEntity", b =>
@@ -331,53 +274,6 @@ namespace Bmerkato2._0.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ProductCategoryEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("CategoryName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProductCategories");
-                });
-
-            modelBuilder.Entity("Bmerkato2.Models.Entities.ProductEntity", b =>
-                {
-                    b.HasOne("ProductCategoryEntity", "ProductCategory")
-                        .WithMany("Products")
-                        .HasForeignKey("ProductCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ProductCategory");
-                });
-
-            modelBuilder.Entity("Bmerkato2.Models.Entities.ProductTagEntity", b =>
-                {
-                    b.HasOne("Bmerkato2.Models.Entities.ProductEntity", "Product")
-                        .WithMany("ProductTags")
-                        .HasForeignKey("ArticleNumber")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Bmerkato2.Models.Entities.TagEntity", "Tag")
-                        .WithMany("ProductTags")
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-
-                    b.Navigation("Tag");
-                });
-
             modelBuilder.Entity("Bmerkato2.Models.Entities.UserAddressEntity", b =>
                 {
                     b.HasOne("Bmerkato2.Models.Entities.AddressEntity", "Address")
@@ -453,24 +349,9 @@ namespace Bmerkato2._0.Migrations
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("Bmerkato2.Models.Entities.ProductEntity", b =>
-                {
-                    b.Navigation("ProductTags");
-                });
-
-            modelBuilder.Entity("Bmerkato2.Models.Entities.TagEntity", b =>
-                {
-                    b.Navigation("ProductTags");
-                });
-
             modelBuilder.Entity("Bmerkato2.Models.Identity.AppUser", b =>
                 {
                     b.Navigation("Addresses");
-                });
-
-            modelBuilder.Entity("ProductCategoryEntity", b =>
-                {
-                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }
