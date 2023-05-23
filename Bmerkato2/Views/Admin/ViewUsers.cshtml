@@ -1,0 +1,28 @@
+﻿@model List<UserVM>
+
+
+<div class="container">
+    <div class="row">
+        @foreach (var user in Model)
+        {
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <div class="small">First Name:</div>
+                            <div class="small">Last Name:</div>
+                            <div class="small">Email:</div>
+                            <div class="small">Role:</div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="small">@user.FirstName</div>
+                            <div class="small">@user.LastName</div>
+                            <div class="small">@user.Email</div>
+                            <div class="small">@user.Role</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

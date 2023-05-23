@@ -60,6 +60,9 @@ html, body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   color: #636363;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .open-menu {
@@ -1066,70 +1069,71 @@ footer .container {
   }
 }
 
-.contact-form {
+.headline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ProductForm {
   padding: 20px 0 60px 0;
 }
-@media (min-width: 992px) {
-  .contact-form {
-    padding: 60px 0;
-  }
-}
-.contact-form .container {
+.ProductForm .container {
   border: 0px solid #E1E1E1;
   padding: 30px;
 }
 @media (min-width: 768px) {
-  .contact-form .container {
+  .ProductForm .container {
     border: 1px solid #E1E1E1;
   }
 }
-.contact-form .title {
+.ProductForm .title {
   margin-bottom: 40px;
 }
-.contact-form form {
+.ProductForm form {
   display: grid;
-  column-gap: 30px;
-  row-gap: 30px;
+  column-gap: 1.5rem;
+  row-gap: 2rem;
   grid-template-columns: 1fr;
   grid-template-areas: "ArticleNumber" "ProductName" "ProductDescription" "ProductPrice" "SelectedCategory" "Image" "ProductTags" "CreateButton";
 }
 @media (min-width: 992px) {
-  .contact-form form {
+  .ProductForm form {
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "ArticleNumber ArticleNumber" "ProductName ProductName" "ProductDescription ProductDescription" "ProductPrice SelectedCategory" "Image Image" "ProductTags ProductTags" "CreateButton CreateButton";
   }
 }
-.contact-form form #ArticleNumber {
+.ProductForm form #ArticleNumber {
   grid-area: ArticleNumber;
 }
-.contact-form form #ProductName {
+.ProductForm form #ProductName {
   grid-area: ProductName;
 }
-.contact-form form #ProductDescription {
+.ProductForm form #ProductDescription {
   grid-area: ProductDescription;
 }
-.contact-form form #ProductPrice {
+.ProductForm form #ProductPrice {
   grid-area: ProductPrice;
 }
-.contact-form form .form-group:nth-child(5) {
+.ProductForm form .form-group:nth-child(5) {
   grid-area: SelectedCategory;
 }
-.contact-form form #Image {
+.ProductForm form #Image {
   grid-area: Image;
 }
-.contact-form form .form-group:nth-child(7) {
+.ProductForm form .form-group:nth-child(7) {
   grid-area: ProductTags;
 }
-.contact-form form button {
+.ProductForm form button {
   grid-area: CreateButton;
 }
-.contact-form form textarea {
+.ProductForm form textarea {
   height: 100px;
   resize: none;
 }
 @media (min-width: 992px) {
-  .contact-form form button {
+  .ProductForm form button {
     display: flex;
     justify-self: flex-start;
+    margin: 2.5rem;
   }
 }

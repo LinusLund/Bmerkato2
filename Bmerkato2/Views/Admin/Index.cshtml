@@ -3,25 +3,30 @@
 }
 
 
-<div class="container">
-    <p>@User.FindFirst("DisplayName")?.Value / Admin Dashboard</p>
 
-    <h2>@ViewData["Title"]</h2>
+<p class="title d-flex justify-content-center mt-5 mb-5">@User.FindFirst("DisplayName")?.Value / Admin Dashboard</p>
+<h2 class="viewData d-flex justify-content-center mb-5">@ViewData["Title"]</h2>
+<div class="container d-flex justify-content-center mt-5 mb-5">
+    
 
     <div class="menu">
-        <ul>
-            <li>
-                <a asp-action="users" asp-controller="admin">Manage Users</a>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" asp-action="ViewUsers" asp-controller="admin">View Users</a>
             </li>
-            <li>
-                <a asp-action="Add" asp-controller="Products" class="link">Create Product</a>
+            <li class="nav-item">
+                <a class="nav-link" asp-action="AddUser" asp-controller="admin">Create User</a>
             </li>
-            <li>
-                <a asp-action="comments" asp-controller="admin">Read Comments</a>
+            <li class="nav-item">
+                <a class="nav-link" asp-action="Add" asp-controller="Products">Create Product</a>
             </li>
-            <li>
-                <a asp-action="Index" asp-controller="registertag">Tag Manager</a>
+            <li class="nav-item">
+                <a class="nav-link" asp-action="comments" asp-controller="admin">Read Comments</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-action="Index" asp-controller="registertag">Tag Manager</a>
             </li>
         </ul>
     </div>
 </div>
+</>

@@ -51,6 +51,10 @@ namespace Bmerkato2.Controllers
                 var createdProduct = await _productService.CreateProductAsync(product);
                 if (createdProduct != null)
                 {
+                    if (viewModel.Image != null) 
+                    {
+                        await _productService.UploadImageAsync(createdProduct, viewModel.Image);
+                    }
                     return RedirectToAction("Index");
                 }
                 else
