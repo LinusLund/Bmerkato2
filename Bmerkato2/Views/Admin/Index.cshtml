@@ -1,3 +1,27 @@
-﻿@{
-    ViewData["Title"] = "Admin Page";
+﻿﻿@{
+    ViewData["Title"] = "Admin Dashboard";
 }
+
+
+<div class="container">
+    <p>@User.FindFirst("DisplayName")?.Value / Admin Dashboard</p>
+
+    <h2>@ViewData["Title"]</h2>
+
+    <div class="menu">
+        <ul>
+            <li>
+                <a asp-action="users" asp-controller="admin">Manage Users</a>
+            </li>
+            <li>
+                <a asp-action="Add" asp-controller="Products" class="link">Create Product</a>
+            </li>
+            <li>
+                <a asp-action="comments" asp-controller="admin">Read Comments</a>
+            </li>
+            <li>
+                <a asp-action="Index" asp-controller="registertag">Tag Manager</a>
+            </li>
+        </ul>
+    </div>
+</div>

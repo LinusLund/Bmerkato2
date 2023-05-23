@@ -1,11 +1,26 @@
-﻿using Bmerkato2.Models.Entities;
+﻿using Bmerkato2.Models.Dtos;
+using Bmerkato2.Models.Entities;
 
 public class ProductCategoryEntity
 {
     public int Id { get; set; }
 
-    public string CategoryName { get; set; }
+    public string CategoryName { get; set; } = null!;
 
     public ICollection<ProductEntity> Products { get; set; } = new HashSet<ProductEntity>();
 
+
+    public static implicit operator ProductCategory(ProductCategoryEntity entity)
+    {
+        if (entity != null)
+        {
+            return new ProductCategory
+            {
+                Id = entity.Id,
+                CategoryName= entity.CategoryName,
+
+            };
+        }
+        return null!;
+    }
 }

@@ -11,6 +11,8 @@ namespace Bmerkato2.Models.Entities
 
         public int TagId { get; set; }
         public TagEntity Tag { get; set; } = null!;
+
+       
     }
 }
 

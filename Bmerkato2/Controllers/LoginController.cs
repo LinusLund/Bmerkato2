@@ -22,12 +22,14 @@ namespace Bmerkato2.Controllers
             return View(viewModel);
         }
 
+
+
         [HttpPost]
         public async Task<IActionResult> Index(UserLoginVM viewModel)
         {
             if(ModelState.IsValid) 
             { 
-                if( await _auth.LoginASync(viewModel))
+                if( await _auth.LoginAsync(viewModel))
                 return LocalRedirect(viewModel.ReturnUrl);
 
                 ModelState.AddModelError("", "Incorrect e-mail or password ");

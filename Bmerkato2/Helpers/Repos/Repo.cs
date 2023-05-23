@@ -30,7 +30,7 @@ namespace Bmerkato2.Helpers.Repos
             return null!;
         }
        
-        public virtual async Task<IEnumerable<TEntity>> GetAllASync()
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
         {
             return await _context.Set<TEntity>().ToListAsync();
     
@@ -42,7 +42,7 @@ namespace Bmerkato2.Helpers.Repos
 
         }
         //Update, förutsätter att mappning skett i Service
-        public virtual async Task<TEntity> UpdateASync(TEntity entity)
+        public virtual async Task<TEntity> UpdateAsync(TEntity entity)
         {
             _context.Set<TEntity>().Update(entity);
             await _context.SaveChangesAsync();

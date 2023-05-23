@@ -27,35 +27,28 @@
         column-gap: 30px;
         row-gap: 30px;
         grid-template-columns: 1fr;
-        grid-template-areas:
-        "email"
-        "password"
-        "rememberme"
-        "button";
+        grid-template-areas: "email" "password" "rememberme" "button";
+    }
 
+    .email {
+        grid-area: email;
+    }
 
+    .password {
+        grid-area: password;
+    }
 
-        .email {
-            grid-area: email;
-        }
+    .rememberme {
+        grid-area: rememberme;
+        margin: 10px 0;
+    }
 
-        .password {
-            grid-area: password;
-        }
+    .btn-theme {
+        grid-area: button;
 
-        .rememberme {
-            grid-area: rememberme;
-            margin: 10px 0;
-        }
-
-
-        .btn-theme {
-            grid-area: button;
-
-            @include lg {
-                display: flex;
-                justify-self: flex-start;
-            }
+        @include lg {
+            display: flex;
+            justify-self: flex-start;
         }
     }
 }

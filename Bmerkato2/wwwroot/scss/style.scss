@@ -1,23 +1,27 @@
-@import './core/fonts';
-@import './core/colors';
-@import './core/mixins';
+@import './core/fonts.scss';
+@import './core/colors.scss';
+@import './core/mixins.scss';
 
-@import './components/base';
-@import './components/buttons';
-@import './components/collectionitem';
-@import './components/collectioncontent';
-@import './components/forms';
+@import './components/base.scss';
+@import './components/buttons.scss';
+@import './components/collectionitem.scss';
+@import './components/collectioncontent.scss';
+@import './components/forms.scss';
 //Partials
-@import './components/header';
-@import './components/footer';
-@import './components/breadcrumb';
-@import './components/map';
-@import './components/showcase';
-@import './components/bestcollection';
-@import './components/uptosell';
-@import './components/topselling';
-@import './components/newsletter';
-@import './components/contactform';
-//views
+@import './components/header.scss';
+@import './components/footer.scss';
+@import './components/breadcrumb.scss';
+@import './components/map.scss';
+@import './components/showcase.scss';
+@import './components/bestcollection.scss';
+@import './components/topselling.scss';
+@import './components/newsletter.scss';
+@import './components/contactform.scss';
+@import './components/_uptosell.scss';
+//Views
 @import './components/_login.scss';
-@import './components/_denied.scss';
+@import './components/_login.scss';
+@import './components/_addProduct.scss';
+
+
+

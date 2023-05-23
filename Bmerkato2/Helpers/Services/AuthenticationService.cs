@@ -1,5 +1,4 @@
-﻿using Bmerkato2.Models.Entities;
-using Bmerkato2.Models.Identity;
+﻿using Bmerkato2.Models.Identity;
 using Bmerkato2.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -27,7 +26,7 @@ namespace Bmerkato2.Helpers.Services
             return await _userManager.Users.AnyAsync(expression);
              
         }
-        //Skapar användare, kör andra metoder för att bestämma roll. Första användare blir Admin.
+        //Skapar användare. Första användare blir Admin.
         public async Task<bool> RegisterUserAsync(UserRegisterVM viewModel)
         {
             AppUser appUser = viewModel;
@@ -61,10 +60,11 @@ namespace Bmerkato2.Helpers.Services
 
             return false;
         }
+
         #endregion
 
 
-        public async Task<bool> LoginASync(UserLoginVM viewModel)
+        public async Task<bool> LoginAsync(UserLoginVM viewModel)
         {
             var appUser = await _userManager.Users.FirstOrDefaultAsync(x => x.Email == viewModel.Email);
             if (appUser != null)
@@ -72,7 +72,6 @@ namespace Bmerkato2.Helpers.Services
                 var result = await _signInManager.PasswordSignInAsync(appUser, viewModel.Password, viewModel.RememberMe, false);
                 return result.Succeeded;
             }
-
             return false;
         }
     }

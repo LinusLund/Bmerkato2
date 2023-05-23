@@ -15,6 +15,9 @@ builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configura
 //Services
 builder.Services.AddScoped<AddressService>();
 builder.Services.AddScoped<AuthenticationService>();
+builder.Services.AddScoped<TagService>();
+builder.Services.AddScoped<ProductCategoryService>();
+builder.Services.AddScoped<ProductService>();
 
 //Repositories
 builder.Services.AddScoped<AddressRepository>();
@@ -46,10 +49,26 @@ var app = builder.Build();
 app.UseHsts();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseRouting();
-app.UseAuthorization();
+
 app.UseAuthentication();
+app.UseAuthorization();
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "ProductAdd",
+    pattern: "Products/Add",
+    defaults: new { controller = "Products", action = "Add" });
+
+app.MapControllerRoute(
+    name: "Products",
+    pattern: "Products/{action=Index}/{id?}",
+    defaults: new { controller = "Products" });
+
+
+
 app.Run();

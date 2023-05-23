@@ -1,4 +1,8 @@
-﻿namespace Bmerkato2.Models.Entities
+﻿
+
+using Bmerkato2.Models.Dtos;
+
+namespace Bmerkato2.Models.Entities
 {
     public class TagEntity
     {
@@ -8,6 +12,19 @@
 
         public ICollection<ProductTagEntity> ProductTags { get; set; } = new HashSet<ProductTagEntity>();
 
+        public static implicit operator Tag(TagEntity entity)
+        {
+            if (entity != null) 
+            {
+                return new Tag
+                {
+                    Id = entity.Id,
+                    TagName = entity.TagName,
+
+                };
+            }
+            return null!;
+        }
     }
 }
 
