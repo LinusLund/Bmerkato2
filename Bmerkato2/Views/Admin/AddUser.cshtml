@@ -14,31 +14,31 @@
             <div class="firstname form-group">
                 <label asp-for="FirstName"></label>
                 <input asp-for="FirstName" />
-                <span asp-validation-for="FirstName" class="error"></span>
+                <span asp-validation-for="FirstName" class="error" onkeyup="validateText(event)" onblur="validateText(event)"></span>
             </div>
 
             <div class="lastname form-group">
                 <label asp-for="LastName"></label>
                 <input asp-for="LastName" />
-                <span asp-validation-for="LastName" class="error"></span>
+                <span asp-validation-for="LastName" class="error" onkeyup="validateText(event)" onblur="validateText(event)"></span>
             </div>
 
             <div class="streetname form-group">
                 <label asp-for="StreetName"></label>
                 <input asp-for="StreetName" />
-                <span asp-validation-for="StreetName" class="error"></span>
+                <span asp-validation-for="StreetName" class="error" onkeyup="validateText(event)"></span>
             </div>
 
             <div class="postalcode form-group">
                 <label asp-for="PostalCode"></label>
                 <input asp-for="PostalCode" />
-                <span asp-validation-for="PostalCode" class="error"></span>
+                <span asp-validation-for="PostalCode" class="error" onkeyup="validateText(event)"></span>
             </div>
 
             <div class="city form-group">
                 <label asp-for="City"></label>
                 <input asp-for="City" />
-                <span asp-validation-for="City" class="error"></span>
+                <span asp-validation-for="City" class="error" onkeyup="validateText(event)"></span>
             </div>
 
             <div class="mobile form-group">
@@ -56,33 +56,25 @@
             <div class="email form-group">
                 <label asp-for="Email"></label>
                 <input asp-for="Email" />
-                <span asp-validation-for="Email" class="error"></span>
+                <span asp-validation-for="Email" class="error" onkeyup="validateEmail(event)"></span>
             </div>
 
             <div class="password form-group">
                 <label asp-for="Password"></label>
                 <input asp-for="Password" />
-                <span asp-validation-for="Password" class="error"></span>
+                <span asp-validation-for="Password" class="error" onkeyup="validatePassword(event)"></span>
+            </div>
 
-            </div><div class="confirmpassword form-group">
+            <div class="confirmpassword form-group">
                 <label asp-for="ConfirmPassword"></label>
                 <input asp-for="ConfirmPassword" />
-                <span asp-validation-for="ConfirmPassword" class="error"></span>
+                <span asp-validation-for="ConfirmPassword" class="error" onkeyup="validateConfirmPassword(event)"></span>
             </div>
 
             <div class="profileimage form-group">
                 <label asp-for="ImageFile"></label>
                 <input asp-for="ImageFile" />
                 <span asp-validation-for="ImageFile" class="error"></span>
-            </div>
-
-            <div class="terms form-checkbox-group">
-                <label class="custom-checkbox">
-                    <label asp-for="TermsAndAgreement"></label>
-                    <input asp-for="TermsAndAgreement" />
-                    <span class="checkmark"></span>
-                </label>
-                <span asp-validation-for="TermsAndAgreement" class="error"></span>
             </div>
 
             <button class="btn-theme">Submit</button>

@@ -27,7 +27,7 @@
         <input type="number" id="ProductPrice" name="ProductPrice" class="form-control" step="0.01" />
     </div>
 
-    div class="Category form-group">
+    <div class="Category form-group">
     <label asp-for="SelectedCategoryId" class="form-label">Category</label>
     <select asp-for="SelectedCategoryId" asp-items="@Model.CategorySelectList" class="form-control"></select>
     <span asp-validation-for="SelectedCategoryId" class="small text-danger"></span>

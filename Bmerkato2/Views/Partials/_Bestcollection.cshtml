@@ -1,4 +1,6 @@
-﻿<section class="best-collection">
+﻿@model HomeViewModel
+
+<section class="best-collection">
     <div class="container">
         <h1 class="collection-title">Best Collection</h1>
         <ul class="categories">
@@ -13,104 +15,19 @@
             <li class="category-item">Beaty</li>
         </ul>
         <div class="collection-grid">
-
-            <!-- collection-item start -->
-            <a href="#" class="collection-item">
-                <img src="images/placeholders/270x295.svg" alt="">
-                <div class="body">
-                    <div class="title">Apple watch collection</div>
-                    <div class="info">
-                        <div class="price">$30.00</div>
-                        <i class="add-cart fa-regular fa-cart-plus"></i>
+            @foreach (var product in Model.FeaturedProducts.Take(8))
+            {
+                <a href="#" class="collection-item">
+                    <img src="images/placeholders/270x295.svg" alt="">
+                    <div class="body">
+                        <div class="title">@product.ProductName</div>
+                        <div class="info">
+                            <div class="price">@product.ProductPrice.ToString("C")</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <!-- collection-item end -->
-            <!-- collection-item start -->
-            <a href="#" class="collection-item">
-                <img src="images/placeholders/270x295.svg" alt="">
-                <div class="body">
-                    <div class="title">Apple watch collection</div>
-                    <div class="info">
-                        <div class="price">$30.00</div>
-                        <i class="add-cart fa-regular fa-cart-plus"></i>
-                    </div>
-                </div>
-            </a>
-            <!-- collection-item end -->
-            <!-- collection-item start -->
-            <a href="#" class="collection-item">
-                <img src="images/placeholders/270x295.svg" alt="">
-                <div class="body">
-                    <div class="title">Apple watch collection</div>
-                    <div class="info">
-                        <div class="price">$30.00</div>
-                        <i class="add-cart fa-regular fa-cart-plus"></i>
-                    </div>
-                </div>
-            </a>
-            <!-- collection-item end -->
-            <!-- collection-item start -->
-            <a href="#" class="collection-item">
-                <img src="images/placeholders/270x295.svg" alt="">
-                <div class="body">
-                    <div class="title">Apple watch collection</div>
-                    <div class="info">
-                        <div class="price">$30.00</div>
-                        <i class="add-cart fa-regular fa-cart-plus"></i>
-                    </div>
-                </div>
-            </a>
-            <!-- collection-item end -->
-            <!-- collection-item start -->
-            <a href="#" class="collection-item">
-                <img src="images/placeholders/270x295.svg" alt="">
-                <div class="body">
-                    <div class="title">Apple watch collection</div>
-                    <div class="info">
-                        <div class="price">$30.00</div>
-                        <i class="add-cart fa-regular fa-cart-plus"></i>
-                    </div>
-                </div>
-            </a>
-            <!-- collection-item end -->
-            <!-- collection-item start -->
-            <a href="#" class="collection-item">
-                <img src="images/placeholders/270x295.svg" alt="">
-                <div class="body">
-                    <div class="title">Apple watch collection</div>
-                    <div class="info">
-                        <div class="price">$30.00</div>
-                        <i class="add-cart fa-regular fa-cart-plus"></i>
-                    </div>
-                </div>
-            </a>
-            <!-- collection-item end -->
-            <!-- collection-item start -->
-            <a href="#" class="collection-item">
-                <img src="images/placeholders/270x295.svg" alt="">
-                <div class="body">
-                    <div class="title">Apple watch collection</div>
-                    <div class="info">
-                        <div class="price">$30.00</div>
-                        <i class="add-cart fa-regular fa-cart-plus"></i>
-                    </div>
-                </div>
-            </a>
-            <!-- collection-item end -->
-            <!-- collection-item start -->
-            <a href="#" class="collection-item">
-                <img src="images/placeholders/270x295.svg" alt="">
-                <div class="body">
-                    <div class="title">Apple watch collection</div>
-                    <div class="info">
-                        <div class="price">$30.00</div>
-                        <i class="add-cart fa-regular fa-cart-plus"></i>
-                    </div>
-                </div>
-            </a>
-            <!-- collection-item end -->
-
+                </a>
+            }
         </div>
         <div class="load-more">
             <button class="btn-outline-white">LOAD MORE <i class="fa-solid fa-rotate-right"></i></button>

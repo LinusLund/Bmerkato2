@@ -1,6 +1,6 @@
 ﻿using Bmerkato2.Models.Entities;
 
-internal class HomeViewModel
+public class HomeViewModel
 {
     public IEnumerable<ProductEntity>? NewProducts { get; set; }
     public IEnumerable<ProductEntity>? PopularProducts { get; set; }

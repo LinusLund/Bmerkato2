@@ -22,6 +22,11 @@ namespace Bmerkato2.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(UserRegisterVM viewModel)
         {
+            if (!viewModel.TermsAndAgreement)
+            {
+                ModelState.AddModelError("TermsAndAgreement", "You must agree with the terms and conditions");
+            }
+
             if (ModelState.IsValid) 
             {
                 if (await _auth.UserAlreadyExistsAsync(x => x.Email == viewModel.Email))
