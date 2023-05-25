@@ -23,6 +23,18 @@
                     </div>
                 </div>
             </div>
+            <div class="card-footer">
+                <form asp-controller="Admin" asp-action="UpdateUser" asp-route-userId="@user.Id" method="post" class="d-inline">
+                    @Html.AntiForgeryToken()
+                    <label for="newRole">Change Role:</label>
+                    <select name="newRole">
+                        <option value="">Select Role</option>
+                        <option value="admin">Admin</option>
+                        <option value="user">User</option>
+                    </select>
+                    <button class="submitRole" type="submit">Update Role</button>
+                </form>
+            </div>
         }
     </div>
 </div>

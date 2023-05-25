@@ -55,6 +55,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&display=swap");
 html, body {
   font-size: 16px;
   font-family: "Roboto", sans-serif;
@@ -814,67 +820,81 @@ footer .container {
   }
 }
 
-.contact-form {
+.register-form {
   padding: 20px 0 60px 0;
 }
 @media (min-width: 992px) {
-  .contact-form {
+  .register-form {
     padding: 60px 0;
   }
 }
-.contact-form .container {
+.register-form .container {
   border: 0px solid #E1E1E1;
   padding: 30px;
 }
 @media (min-width: 768px) {
-  .contact-form .container {
+  .register-form .container {
     border: 1px solid #E1E1E1;
   }
 }
-.contact-form .title {
+.register-form .title {
   margin-bottom: 40px;
 }
-.contact-form form {
+.register-form form {
   display: grid;
   column-gap: 30px;
   row-gap: 30px;
   grid-template-columns: 1fr;
-  grid-template-areas: "name" "email" "phoneNumber" "companyName" "message" "terms" "button";
+  grid-template-areas: "firstname" "lastname" "streetname" "companyName" "postalcode" "city" "mobile" "email" "password" "confirmpassword" "profileimage" "terms" "button";
 }
 @media (min-width: 992px) {
-  .contact-form form {
+  .register-form form {
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "name email" "phoneNumber companyName" "message message" "terms terms" "button button";
+    grid-template-areas: "firstname lastname" "streetname streetname" "postalcode city" "mobile company" "email email" "password password" "confirmpassword confirmpassword" "profileimage profileimage" "terms terms" "button button";
   }
 }
-.contact-form form .name {
-  grid-area: name;
+.register-form form .firstname {
+  grid-area: firstname;
 }
-.contact-form form .email {
-  grid-area: email;
+.register-form form .lastname {
+  grid-area: lastname;
 }
-.contact-form form .phoneNumber {
-  grid-area: phoneNumber;
+.register-form form .streetname {
+  grid-area: streetname;
 }
-.contact-form form .companyName {
+.register-form form .companyName {
   grid-area: companyName;
 }
-.contact-form form .terms {
+.register-form form .postalcode {
+  grid-area: postalcode;
+}
+.register-form form .city {
+  grid-area: city;
+}
+.register-form form .mobile {
+  grid-area: mobile;
+}
+.register-form form .email {
+  grid-area: email;
+}
+.register-form form .password {
+  grid-area: password;
+}
+.register-form form .confirmpassword {
+  grid-area: confirmpassword;
+}
+.register-form form .profileimage {
+  grid-area: profileimage;
+}
+.register-form form .terms {
   grid-area: terms;
   margin: 10px 0;
 }
-.contact-form form .message {
-  grid-area: message;
-}
-.contact-form form textarea {
-  height: 100px;
-  resize: none;
-}
-.contact-form form button {
+.register-form form button {
   grid-area: button;
 }
 @media (min-width: 992px) {
-  .contact-form form button {
+  .register-form form button {
     display: flex;
     justify-self: flex-start;
   }
@@ -1136,4 +1156,141 @@ footer .container {
     justify-self: flex-start;
     margin: 2.5rem;
   }
+}
+
+.details {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+.details .detailsWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.details .detailsWrapper .flexSection {
+  display: flex;
+  flex-wrap: wrap;
+  width: 35%;
+}
+.details .detailsWrapper .flexSection .bigGridBox {
+  flex-basis: 100%;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.details .detailsWrapper .flexSection .smallBoxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 27px;
+  row-gap: 10px;
+}
+.details .detailsWrapper .flexSection .smallBoxContainer .smallGridBox {
+  flex-basis: 4%;
+  width: 100px;
+  height: 100px;
+}
+.details .detailsWrapper .productContainer {
+  width: 36%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.details .detailsWrapper .productInfo {
+  text-align: left;
+}
+.details .detailsWrapper .title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.details .detailsWrapper .starsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 0.1rem;
+  margin: 2rem;
+}
+.details .detailsWrapper .star.star-yellow {
+  width: 20px;
+  height: 20px;
+  background-color: gold;
+  clip-path: polygon(50% 0%, 61.8% 35.3%, 98.1% 35.3%, 68.2% 57.1%, 79.1% 92.9%, 50% 71.4%, 20.9% 92.9%, 31.8% 57.1%, 1.9% 35.3%, 38.2% 35.3%);
+}
+.details .detailsWrapper .reviews {
+  margin-left: 1.5rem;
+}
+.details .detailsWrapper .quantitySelector {
+  margin-top: 1.5rem;
+}
+.details .detailsWrapper .counter {
+  margin-left: 2rem;
+  font-weight: bold;
+}
+.details .detailsWrapper .remove {
+  border: 1px solid black;
+  padding: 0.8rem;
+}
+.details .detailsWrapper .number {
+  border: 1px solid black;
+  padding: 0.8rem 1.5rem;
+}
+.details .detailsWrapper .add {
+  border: 1px solid black;
+  padding: 0.8rem;
+}
+.details .detailsWrapper .cartButton {
+  margin-left: 1rem;
+  font-weight: bold;
+  border: none;
+  height: 3rem;
+  width: 10rem;
+  background-color: #FA3150;
+  color: #FFFFFF;
+}
+.details .detailsWrapper .statusBadge {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #92B8B9;
+}
+.details .detailsWrapper .wishListButton {
+  margin-top: 2rem;
+  margin-left: 1rem;
+  font-weight: 300;
+  border: none;
+  height: 3rem;
+  width: 10rem;
+}
+
+.card {
+  margin-bottom: 1rem;
+}
+.card .card-body .row .col-sm-1 .small {
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+.card .card-body .row .col-sm-9 .small {
+  font-size: 0.875rem;
+  color: #333;
+}
+.card .card-footer form {
+  display: inline;
+  margin-top: 1rem;
+}
+.card .card-footer form label {
+  margin-right: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+.card .card-footer form select {
+  margin-right: 0.5rem;
+  font-size: 0.875rem;
+  padding: 0.25rem;
+}
+.card .card-footer form .submitRole {
+  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+  background-color: #FA3150;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }

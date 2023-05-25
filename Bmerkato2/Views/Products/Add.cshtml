@@ -6,38 +6,51 @@
 <div class="headline">
 <h1>Add New Product</h1>
 </div>
-<form method="post" enctype="multipart/form-data class="ProductForm">
-    <div class="form-group">
+<form method="post" enctype="multipart/form-data" class="ProductForm">
+    <div class="ArticleNumber form-group">
         <label asp-for="ArticleNumber">Article Number</label>
         <input type="text" id="ArticleNumber" name="ArticleNumber" class="form-control" />
     </div>
 
-    <div class="form-group">
+    <div class="Name form-group">
         <label asp-for="ProductName">Product Name</label>
         <input type="text" id="ProductName" name="ProductName" class="form-control" />
     </div>
 
-    <div class="form-group">
+    <div class="Description form-group">
         <label asp-for="ProductDescription">Product Description</label>
         <textarea id="ProductDescription" name="ProductDescription" class="form-control"></textarea>
     </div>
 
-    <div class="form-group">
+    <div class="Price form-group">
         <label asp-for="ProductPrice">Product Price</label>
         <input type="number" id="ProductPrice" name="ProductPrice" class="form-control" step="0.01" />
     </div>
 
-    <div class="form-group">
-        <label asp-for="SelectedCategoryId" class="form-label">Category</label>
-        <select asp-for="SelectedCategoryId" asp-items="@Model.CategorySelectList" class="form-control"></select>
-        <span asp-validation-for="SelectedCategoryId" class="small text-danger"></span>
+    div class="Category form-group">
+    <label asp-for="SelectedCategoryId" class="form-label">Category</label>
+    <select asp-for="SelectedCategoryId" asp-items="@Model.CategorySelectList" class="form-control"></select>
+    <span asp-validation-for="SelectedCategoryId" class="small text-danger"></span>
     </div>
 
 
-    <div class="form-group">
+    <div class="image form-group">
         <label asp-for="Image">Product Image</label>
         <input type="file" id="Image" name="Image" class="form-control-file" />
     </div>
+
+    <div class="mb-5">
+    @foreach (SelectListItem tag in ViewBag.Tags)
+    {
+        <div class="form-check form-check-inline mb-2">
+            <input type="checkbox" name="Tags" id="tag-@tag.Text-@tag.Value" value="@tag.Value" checked="@tag.Selected" id="@tag.Value" class="form-check-input" />
+            <label for="tag-@tag.Text-@tag.Value" class="small form-check-label mr-2">@tag.Text</label>
+        </div>
+    }
+    </div>
+    
+    <input type="hidden" name="SelectedTags" id="SelectedTags" value="" />
+
 
 
     <button type="submit" class="btn btn-primary">Create Product</button>

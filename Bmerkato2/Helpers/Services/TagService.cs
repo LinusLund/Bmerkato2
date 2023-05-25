@@ -2,6 +2,7 @@
 using Bmerkato2.Helpers.Repos;
 using Bmerkato2.Models.Dtos;
 using Bmerkato2.Models.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Bmerkato2.Helpers.Services
 {
@@ -30,16 +31,26 @@ namespace Bmerkato2.Helpers.Services
             return result;
         }
 
-        public async Task<IEnumerable<Tag>> GetAllTagsAsync()
+        public async Task<IEnumerable<TagEntity>> GetAllTagsAsync()
         {
             var result = await _tagRepo.GetAllAsync();
+            return result;
+        }
 
-            
-            var list = new List<Tag>();
-            foreach (var tag in result)
-                list.Add(tag);
+        public async Task<List<SelectListItem>> GetTagsAsync(string[] selectedTags)
+        {
+            var tags = new List<SelectListItem>();
 
-            return list;
+            foreach (var tag in await _tagRepo.GetAllAsync())
+            {
+                tags.Add(new SelectListItem
+                {
+                    Value = tag.Id.ToString(),
+                    Text = tag.TagName,
+                    Selected = selectedTags.Contains(tag.Id.ToString())
+                });
+            }
+            return tags;
         }
 
         public async Task<Tag>UpdateTagAsync(Tag tag)

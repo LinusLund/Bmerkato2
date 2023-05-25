@@ -9,6 +9,7 @@
 }
 footerPosition('footer', document.body.scrollHeight, window.innerHeight)
 
+
 try {
     const toggleBtn = document.querySelector('[data-option="toggle"]')
     toggleBtn.addEventListener('click', function () {
@@ -27,6 +28,7 @@ try {
         }
     })
 } catch { }
+
 
 
 

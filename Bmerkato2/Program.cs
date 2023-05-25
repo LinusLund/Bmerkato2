@@ -18,6 +18,7 @@ builder.Services.AddScoped<AuthenticationService>();
 builder.Services.AddScoped<TagService>();
 builder.Services.AddScoped<ProductCategoryService>();
 builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<ContactFormService>();
 
 //Repositories
 builder.Services.AddScoped<AddressRepository>();
@@ -26,6 +27,7 @@ builder.Services.AddScoped<ProductCategoryRepository>();
 builder.Services.AddScoped<ProductRepository>();
 builder.Services.AddScoped<ProductTagRepository>();
 builder.Services.AddScoped<TagRepository>();
+builder.Services.AddScoped<ContactFormRepository>();
 
 //Identity
 builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
@@ -68,6 +70,16 @@ app.MapControllerRoute(
     name: "Products",
     pattern: "Products/{action=Index}/{id?}",
     defaults: new { controller = "Products" });
+
+app.MapControllerRoute(
+    name: "UsersAdd",
+    pattern: "admin/AddUser",
+    defaults: new { controller = "admin", action = "AddUser" });
+
+app.MapControllerRoute(
+ name: "productDetails",
+ pattern: "products/{articleNumber}",
+ defaults: new { controller = "Products", action = "Details" });
 
 
 

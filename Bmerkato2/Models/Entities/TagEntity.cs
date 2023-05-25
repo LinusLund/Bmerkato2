@@ -1,6 +1,4 @@
-﻿
-
-using Bmerkato2.Models.Dtos;
+﻿using Bmerkato2.Models.Dtos;
 
 namespace Bmerkato2.Models.Entities
 {

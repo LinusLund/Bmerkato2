@@ -46,13 +46,5 @@ namespace Bmerkato2.Helpers.Services
             return list;
         }
 
-        public async Task AssociateProductWithCategoryAsync(ProductEntity product, int id)
-        {
-            var category = await _productCategoryRepo.GetAsync(x => x.Id == id);
-            if (category != null)
-            {
-                product.ProductCategory = category;
-            }
-        }
     }
 }

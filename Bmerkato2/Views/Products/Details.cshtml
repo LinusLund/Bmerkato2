@@ -1,0 +1,52 @@
+﻿@model ProductDetailsVM
+
+@{
+    ViewData["title"] = Model.ArticleNumber;
+}
+<section>
+    <div class="details">
+        <div class="detailsWrapper">
+            <div class="flexSection">
+                <div class="bigGridBox">
+                    <img class="bigImage" src="~/images/Placeholders/501x430.svg" alt="Product Image">
+                </div>
+                <div class="smallBoxContainer">
+                    <div class="smallGridBox"><img className="littleImage" src="~/images/Placeholders/120x113.svg" alt="Product Image"></div>
+                    <div class="smallGridBox"><img className="littleImage" src="~/images/Placeholders/120x113.svg" alt="Product Image"></div>
+                    <div class="smallGridBox"><img className="littleImage" src="~/images/Placeholders/120x113.svg" alt="Product Image"></div>
+                    <div class="smallGridBox"><img className="littleImage" src="~/images/Placeholders/120x113.svg" alt="Product Image"></div>
+                </div>
+            </div>
+
+            <div class="productContainer">
+                <div class="productInfo">
+                    <h1 class="title">@Model.ProductName</h1>
+                    <div class="description">@Model.ProductDescription</div>
+                    <div class="price">@Model.ProductPrice</div>
+                    <div class="category"></div>
+                    <div class="starsContainer">
+                        <div class="star star-yellow"></div>
+                        <div class="star star-yellow"></div>
+                        <div class="star star-yellow"></div>
+                        <div class="star star-yellow"></div>
+                        <div class="star star-yellow"></div>
+                        <div class="reviews">16 Reviews</div>
+                    </div>
+
+                    <div class="quantitySelector">
+                        
+                        <span class="counter">
+                            <span class="remove">-</span>
+                            <span class="number">1</span>
+                            <span class="add">+</span>
+                        </span>
+                        <span><button class="cartButton">ADD TO CART</button></span>
+                    </div>
+
+                    <span class="statusBadge"></span>
+                    <span><button class="wishListButton">Add to wishlist</button></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

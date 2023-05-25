@@ -1,0 +1,52 @@
+﻿@import '../core/_colors.scss';
+@import '../core/_fonts.scss';
+@import '../core/_mixins.scss';
+.card {
+    margin-bottom: 1rem;
+
+    .card-body {
+        .row {
+            .col-sm-1 {
+                .small {
+                    font-size: 0.875rem;
+                    font-weight: bold;
+                }
+            }
+
+            .col-sm-9 {
+                .small {
+                    font-size: 0.875rem;
+                    color: #333;
+                }
+            }
+        }
+    }
+
+    .card-footer {
+        form {
+            display: inline;
+            margin-top: 1rem;
+
+            label {
+                margin-right: 0.5rem;
+                font-size: 0.875rem;
+                font-weight: bold;
+            }
+
+            select {
+                margin-right: 0.5rem;
+                font-size: 0.875rem;
+                padding: 0.25rem;
+            }
+
+            .submitRole {
+                font-size: 0.875rem;
+                padding: 0.25rem 0.5rem;
+                background-color: $color-theme-1;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+﻿@model TagVM
+<section>
+    <form method="post" class="needs-validation" novalidate>
+        <div class="form-group">
+            <label asp-for="TagName" class="form-label">Tag Name</label>
+            <input asp-for="TagName" class="form-control" />
+            <span asp-validation-for="TagName" class="text-danger"></span>
+        </div>
+  
+        <button type="submit" class="btn btn-primary">Create Tag</button>
+
+        <div class="mt-4">
+            <h4>Existing Tags:</h4>
+            <ul>
+                @foreach (var tag in Model.Tags)
+                {
+                    <li>@tag</li>
+                }
+            </ul>
+        </div>
+    </form>
+</section>

@@ -9,6 +9,6 @@
         public ProductCategory ProductCategory { get; set; } = null!;
         public string? ImageUrl { get; set; }
 
-        public IEnumerable<Tag> Tags { get; set; } = new List<Tag>();
+        public List<string> Tags { get; set; } = new List<string>();
     }
 }

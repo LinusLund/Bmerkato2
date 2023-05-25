@@ -1,22 +1,24 @@
 ﻿using Bmerkato2.Helpers.Repos;
 using Bmerkato2.Models.Dtos;
 using Bmerkato2.Models.Entities;
-using Bmerkato2.Models.ViewModels;
-using Microsoft.AspNetCore.Hosting;
+
 
 namespace Bmerkato2.Helpers.Services
 {
     public class ProductService
     {
         private readonly ProductRepository _productRepo;
-        private readonly ProductCategoryService _categoryService;
+       
         private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly TagService _tagService;
+        private readonly ProductTagRepository _productTagRepository;
 
-        public ProductService(ProductRepository productRepo, ProductCategoryService categoryService, IWebHostEnvironment webHostEnvironment)
+        public ProductService(ProductRepository productRepo, IWebHostEnvironment webHostEnvironment, TagService tagService, ProductTagRepository productTagRepository)
         {
             _productRepo = productRepo;
-            _categoryService = categoryService;
             _webHostEnvironment = webHostEnvironment;
+            _tagService = tagService;
+            _productTagRepository = productTagRepository;
         }
 
         public async Task<IEnumerable<ProductEntity>> GetAllProductsAsync()
@@ -24,51 +26,65 @@ namespace Bmerkato2.Helpers.Services
             return await _productRepo.GetAllAsync();
         }
 
-        public async Task<ProductEntity> CreateProductAsync(ProductAddVM product)
+        public async Task<ProductEntity> CreateProductAsync(ProductEntity entity)
         {
-            
-            if (product == null)
+            var _entity = await _productRepo.GetAsync(x => x.ArticleNumber == entity.ArticleNumber);
+            if (_entity == null)
             {
-                throw new ArgumentNullException(nameof(product), "Product cannot be null.");
+                _entity = await _productRepo.AddAsync(entity);
+                if (_entity != null)
+                    return entity;
             }
-
-            if (string.IsNullOrEmpty(product.ArticleNumber))
-            {
-                throw new ArgumentException("Article number is required.", nameof(product.ArticleNumber));
-            }
-
-            if (string.IsNullOrEmpty(product.ProductName))
-            {
-                throw new ArgumentException("Product name is required.", nameof(product.ProductName));
-            }
-
-            
-            var productEntity = (ProductEntity)product;
-
-           
-            var selectedCategory = await _categoryService.GetCategoryAsync(product.SelectedCategoryId);
-
-         
-            if (selectedCategory != null)
-            {
-                productEntity.ProductCategory = selectedCategory;
-            }
-
-           
-            var createdProduct = await _productRepo.AddAsync(productEntity);
-
-            return createdProduct;
+            return null!;
         }
+
+
+
+        public async Task AddProductTagsAsync(ProductEntity entity, string[] tags)
+        {
+            foreach (var tag in tags)
+            {
+                await _productTagRepository.AddAsync(new ProductTagEntity
+                {
+                    ArticleNumber = entity.ArticleNumber,
+                    TagId = int.Parse(tag),
+
+                });
+            }
+        }
+
 
         public async Task<bool> UploadImageAsync(Product product, IFormFile image)
         {
             try
             {
-                string imagePath = $"{_webHostEnvironment.WebRootPath}/images/products/{product.ImageUrl}";
+                string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
+                string imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", "products", uniqueFileName);
                 await image.CopyToAsync(new FileStream(imagePath, FileMode.Create));
+
+
+                product.ImageUrl = uniqueFileName;
+
                 return true;
             }
-            catch { return false; }
+            catch
+            {
+                return false;
+            }
+        } 
+        
+        public async Task<ProductEntity> GetProductById(string articleNumber)
+        {
+            var product = await _productRepo.GetAsync(p => p.ArticleNumber == articleNumber);
+            return product;
         }
+
+         public async Task<IEnumerable<ProductEntity>> GetProductsByTag(string tagName)
+        {
+            var products = await _productRepo.GetAllAsync();
+            return products.Where(p => p.ProductTags.Any(pt => pt.Tag.TagName == tagName));
+        }
+
     }
 }
+
