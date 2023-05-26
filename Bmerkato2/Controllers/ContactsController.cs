@@ -25,7 +25,7 @@ namespace Bmerkato2.Controllers
             {
                 await _contactService.AddAsync(viewModel);
             }
-            return View(viewModel);
+            return RedirectToAction("Index");
 
         }
     }

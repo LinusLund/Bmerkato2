@@ -25,5 +25,24 @@ namespace Bmerkato2.Contexts
         public DbSet<ProductCategoryEntity> ProductCategories { get; set; }
         public DbSet<ProductTagEntity> ProductTags { get; set; }
 
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+
+            builder.Entity<TagEntity>().HasData(
+                new TagEntity { Id = 1, TagName = "Featured" },
+                new TagEntity { Id = 2, TagName = "New" },
+                new TagEntity { Id = 3, TagName = "Popular" }
+
+             );
+
+            builder.Entity<ProductCategoryEntity>().HasData(
+                new ProductCategoryEntity { Id = 1, CategoryName = "Bag" },
+                new ProductCategoryEntity { Id = 2, CategoryName = "Shoes"}
+            );
+
+        }
     }
 }

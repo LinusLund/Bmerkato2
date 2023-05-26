@@ -55,15 +55,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&display=swap");
 html, body {
   font-size: 16px;
   font-family: "Roboto", sans-serif;
@@ -1045,122 +1036,6 @@ footer .container {
   }
 }
 
-.login-form {
-  padding: 20px 0 60px 0;
-}
-@media (min-width: 992px) {
-  .login-form {
-    padding: 60px 0;
-  }
-}
-.login-form .container {
-  border: 0px solid #E1E1E1;
-  padding: 30px;
-}
-@media (min-width: 768px) {
-  .login-form .container {
-    border: 1px solid #E1E1E1;
-  }
-}
-.login-form .title {
-  margin-bottom: 40px;
-}
-.login-form form {
-  display: grid;
-  column-gap: 30px;
-  row-gap: 30px;
-  grid-template-columns: 1fr;
-  grid-template-areas: "email" "password" "rememberme" "button";
-}
-.login-form .email {
-  grid-area: email;
-}
-.login-form .password {
-  grid-area: password;
-}
-.login-form .rememberme {
-  grid-area: rememberme;
-  margin: 10px 0;
-}
-.login-form .btn-theme {
-  grid-area: button;
-}
-@media (min-width: 992px) {
-  .login-form .btn-theme {
-    display: flex;
-    justify-self: flex-start;
-  }
-}
-
-.headline {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.ProductForm {
-  padding: 20px 0 60px 0;
-}
-.ProductForm .container {
-  border: 0px solid #E1E1E1;
-  padding: 30px;
-}
-@media (min-width: 768px) {
-  .ProductForm .container {
-    border: 1px solid #E1E1E1;
-  }
-}
-.ProductForm .title {
-  margin-bottom: 40px;
-}
-.ProductForm form {
-  display: grid;
-  column-gap: 1.5rem;
-  row-gap: 2rem;
-  grid-template-columns: 1fr;
-  grid-template-areas: "ArticleNumber" "ProductName" "ProductDescription" "ProductPrice" "SelectedCategory" "Image" "ProductTags" "CreateButton";
-}
-@media (min-width: 992px) {
-  .ProductForm form {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-.ProductForm form #ArticleNumber {
-  grid-area: ArticleNumber;
-}
-.ProductForm form #ProductName {
-  grid-area: ProductName;
-}
-.ProductForm form #ProductDescription {
-  grid-area: ProductDescription;
-}
-.ProductForm form #ProductPrice {
-  grid-area: ProductPrice;
-}
-.ProductForm form .form-group:nth-child(5) {
-  grid-area: SelectedCategory;
-}
-.ProductForm form #Image {
-  grid-area: Image;
-}
-.ProductForm form .form-group:nth-child(7) {
-  grid-area: ProductTags;
-}
-.ProductForm form button {
-  grid-area: CreateButton;
-}
-.ProductForm form textarea {
-  height: 100px;
-  resize: none;
-}
-@media (min-width: 992px) {
-  .ProductForm form button {
-    display: flex;
-    justify-self: flex-start;
-    margin: 2.5rem;
-  }
-}
-
 .details {
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -1296,45 +1171,4 @@ footer .container {
   color: #fff;
   border: none;
   cursor: pointer;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.account-details {
-  background-color: #FAFAFA;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 400px;
-}
-.account-details h2.title {
-  color: #202020;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-.account-details h3 {
-  color: #FA3150;
-  font-size: 18px;
-  margin-top: 30px;
-  margin-bottom: 10px;
-}
-.account-details p {
-  color: #292929;
-  margin-bottom: 8px;
-}
-.account-details p:first-child {
-  margin-top: 0;
-}
-.account-details .order-history {
-  color: #AEAEAE;
-  font-style: italic;
-}
-.account-details .settings a {
-  border: 1px solid black;
-  color: #FAEFEF;
-  text-decoration: underline;
-  margin-bottom: 5px;
 }
