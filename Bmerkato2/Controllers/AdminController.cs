@@ -81,7 +81,7 @@ namespace Bmerkato2.Controllers
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
-                return RedirectToAction("users");
+                return RedirectToAction("ViewUsers");
             }
             var currentRoles = await _userManager.GetRolesAsync(user);
 
@@ -91,7 +91,7 @@ namespace Bmerkato2.Controllers
                 await _userManager.AddToRoleAsync(user, newRole);
             }
 
-            return RedirectToAction("users");
+            return RedirectToAction("ViewUsers");
         }
     }
 }

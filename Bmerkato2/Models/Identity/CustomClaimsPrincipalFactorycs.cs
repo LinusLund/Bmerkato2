@@ -28,6 +28,8 @@ namespace Bmerkato2.Models.Identity
 
             claimsIdentity.AddClaim(new Claim("DisplayName", $"{user.FirstName} {user.LastName}"));
             claimsIdentity.AddClaim(new Claim("FirstName", $"{user.FirstName}"));
+            //För att kunna komma åt Account sidan.
+            claimsIdentity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id));
 
             return claimsIdentity;
         }

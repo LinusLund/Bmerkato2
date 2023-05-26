@@ -1,0 +1,55 @@
+﻿@import '../core/_colors.scss';
+@import '../core/_fonts.scss';
+@import '../core/_mixins.scss';
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+headLineAccount.{
+
+}
+
+.account-details {
+    background-color: $color-theme-4;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+
+    h2.title {
+        color: $color-dark-1;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        color: $color-theme-1;
+        font-size: 18px;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: $color-dark-2;
+        margin-bottom: 8px;
+    }
+
+    p:first-child {
+        margin-top: 0;
+    }
+
+    .order-history {
+        color: $color-dark-4;
+        font-style: italic;
+    }
+
+    .settings {
+        a {
+            border: 1px solid black;
+            color: $color-theme-2;
+            text-decoration: underline;
+            margin-bottom: 5px;
+        }
+    }
+}

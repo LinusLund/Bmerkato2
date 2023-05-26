@@ -1,4 +1,6 @@
-﻿<header>
+﻿@using System.Security.Claims;
+
+<header>
 
     <div class="container">
         <div class="logo"><img src="images/logo.svg" alt="">bmerketo</div>
@@ -7,7 +9,6 @@
             <a class="link" asp-controller="Products" asp-action="Index">PRODUCTS</a>
             <a class="link" asp-controller="Contacts" asp-action="Index">CONTACT</a>
         </nav>
-
 
         <nav class="menu-icons">
             @if (signInManager.IsSignedIn(User))
@@ -38,6 +39,7 @@
 
 
         </nav>
+
 
 
         <div class="toggle">
