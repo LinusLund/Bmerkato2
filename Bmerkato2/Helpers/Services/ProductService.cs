@@ -58,21 +58,13 @@ namespace Bmerkato2.Helpers.Services
         {
             try
             {
-                string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
-                string imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", "products", uniqueFileName);
+                string imagePath = $"{_webHostEnvironment.WebRootPath}/images/products/{product.ImageUrl}";
                 await image.CopyToAsync(new FileStream(imagePath, FileMode.Create));
-
-
-                product.ImageUrl = uniqueFileName;
-
                 return true;
             }
-            catch
-            {
-                return false;
-            }
-        } 
-        
+            catch { return false; }
+        }
+
         public async Task<ProductEntity> GetProductById(string articleNumber)
         {
             var product = await _productRepo.GetAsync(p => p.ArticleNumber == articleNumber);
