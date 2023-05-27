@@ -17,8 +17,8 @@
         <div class="collection-grid">
             @foreach (var product in Model.FeaturedProducts.Take(8))
             {
-                <a href="#" class="collection-item">
-                    <img src="images/placeholders/270x295.svg" alt="">
+                <a href="/products/@product.ArticleNumber" class="collection-item">
+                    <img src=@product.ImageUrl alt="~/images/placeholders/270x295.svg">
                     <div class="body">
                         <div class="title">@product.ProductName</div>
                         <div class="info">
