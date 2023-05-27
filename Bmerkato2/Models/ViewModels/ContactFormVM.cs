@@ -5,10 +5,10 @@ namespace Bmerkato2.Models.ViewModels
 {
         public class ContactFormVM
         {
-            [Display(Name = "First Name")]
+            [Display(Name = "Name")]
             [MinLength(2, ErrorMessage = "Your name need to be atleast 2 characters long")]
             [Required(ErrorMessage = "Please fill in a name")] //Ändrar på errormeddelande vid failad registrering
-            [RegularExpression(@"^[a-öA-Ö]+(?:[ é'-][a-öA-Ö]+)*$", ErrorMessage = "You need to fill in a valid firstname")] //Regex  First+lastname
+            [RegularExpression(@"^[a-öA-Ö]+(?:[ é'-][a-öA-Ö]+)*$", ErrorMessage = "You need to fill in a valid Name")] //Regex  First+lastname
             public string Name { get; set; } = null!;
 
 

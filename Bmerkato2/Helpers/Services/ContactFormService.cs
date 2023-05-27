@@ -14,21 +14,16 @@ namespace Bmerkato2.Helpers.Services
             _contactFormRepository = contactFormRepository;
         }
 
-        public async Task<ContactFormData> AddAsync(ContactFormVM viewModel)
+        public async Task<ContactFormEntity> AddAsync(ContactFormEntity entity)
         {
-            var entity = new ContactFormEntity
+            var _entity = await _contactFormRepository.GetAsync(x => x.Id == entity.Id);
+            if (_entity == null)
             {
-                Name = viewModel.Name,
-                Email = viewModel.Email,
-                PhoneNumber = viewModel.PhoneNumber,
-                Company = viewModel.Company,
-                Comment = viewModel.Comment,
-                RememberMe = viewModel.SaveMyData,
-                DateTime = DateTime.UtcNow
-            };
-
-            var result = await _contactFormRepository.AddAsync(entity);
-            return result;
+                _entity = await _contactFormRepository.AddAsync(entity);
+                if (_entity != null)
+                    return entity;
+            }
+            return null!;
         }
     }
 }

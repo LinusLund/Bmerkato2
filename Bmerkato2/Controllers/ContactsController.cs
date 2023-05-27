@@ -24,8 +24,10 @@ namespace Bmerkato2.Controllers
             if (ModelState.IsValid)
             {
                 await _contactService.AddAsync(viewModel);
+
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+            return View(viewModel);
 
         }
     }

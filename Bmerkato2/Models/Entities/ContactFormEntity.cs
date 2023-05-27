@@ -18,6 +18,7 @@ namespace Bmerkato2.Models.Entities
         {
             return new ContactFormEntity
             {
+                Id = formData.Id,
                 Name = formData.Name,
                 Email = formData.Email,
                 PhoneNumber = formData.PhoneNumber,
